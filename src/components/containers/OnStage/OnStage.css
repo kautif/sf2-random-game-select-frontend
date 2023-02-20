@@ -1,0 +1,42 @@
+.on-stage {
+    position: absolute;
+    right: 7%;
+    top: 27%;
+}
+  
+#stage-name {
+    background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: -27%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#on-stage-img {
+    width: 550px;
+    height: 400px;
+}
+
+.on-stage__votes-container {
+    position: absolute;
+    left: 29%;
+    width: 100%;
+    bottom: -24%;
+}
+
+
+#stage-stats,
+#vote-ratio {
+    background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: white;
+    font-size: 1.5em;
+}
+
+#vote-ratio {
+    bottom: 10%;
+}

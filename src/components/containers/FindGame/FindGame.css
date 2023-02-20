@@ -1,0 +1,68 @@
+.sf2-findgame__container {
+    background-color: #00006b;
+    height: 100vh;
+}
+
+.sf2-findgame__container h1 {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sf2-findgame__container form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sf2-findgame__container input {
+    width: 50%;
+}
+
+.sf2-findgame__container form button {
+    width: 15%;
+    margin-left: 2%;
+}
+
+.sf2-find-game__allresults,
+.sf2-gameslist__algames {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.sf2-find-game__result {
+    margin-top: 5%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sf2-find-game__result h2 {
+    width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4%;
+    font-size: 1.5em;
+    background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sf2-find-game__result img {
+    width: 600px;
+    height: 400px;
+}
+
+.sf2-find-game__result button {
+    width: 40%;
+    align-self: center;
+    margin-top: 5%;
+}

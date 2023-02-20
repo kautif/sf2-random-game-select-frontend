@@ -1,38 +1,269 @@
-.App {
+@font-face {
+  font-family: 'SF2Font';
+  src: url('../src/fonts/street-fighter-zero-3-arcade-1-0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SFLogoFont';
+  src: url('../src/fonts/Act_Of_Rejection.ttf') format('truetype');
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, p {
+  font-family: 'SF2Font';
+}
+
+.cover {
+  background: #00006B;
+  min-height: 100vh;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.cover-start {
+  cursor: pointer;
+  background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cover-logo-container {
+  position: relative;
+  display: none;
+  opacity: 0;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.cover-continue {
+  position: absolute;
+  bottom: -20%;
+  background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cover-continue h1{
+  border-bottom: #ffb50e 2px solid;
+  cursor: pointer;
+}
+
+.cover-logo {
+  font-family: 'SFLogoFont';
+  background: -webkit-linear-gradient(#FDFD00 22%, #dd1d25 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: rotate( -11deg);
+  font-size: 5em;
+}
+
+.cover-select {
+  margin-left: 25%;
+}
+
+.sf-intro {
+  display: none;
+  width: 50%;
+  position: absolute; 
+  left: 25%;
+  bottom: 0%;
+}
+
+/* .music-container {
+  text-align: center;
+  width: 51%;
+  padding-top: 2%;
+} */
+
+/* .fas {
+  width: 30px;
+  font-size: 2em;
   color: white;
+} */
+
+/* .fa-pause,
+.fa-stop {
+  margin-left: 3%;
+} */
+
+#random-select-btn {
+  background: -webkit-linear-gradient(#FDFD00 50%, #dd1d25 65%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  width: 51%;
+  font-size: 1.25em;
+  cursor: pointer;
+  margin-bottom: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.games-container {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../src/img/sf2_select_screen.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  padding-bottom: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.gamesIcons-container {
+  display: flex;
+}
+
+.gameIcon-single-container {
+  /* display: flex; */
+}
+
+.gameIcon-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 53%;
+  margin-left: 2%;
+  padding-top: 2%;
+}
+
+.gameIcon {
+  color: white;
+  width: 75px;
+  height: 75px;
+  margin-bottom: -3px;
+  /* margin-left: 20px;
+  margin-top: 20px; */
+  /* border: 2px white solid; */
+}
+
+
+
+/* #on-stage-img {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 56%;
+  left: 28%;
+} */
+
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gameIcon-flex {
+    width: 53%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .gameIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  #vote-ratio {
+    font-size: 1.05em;
+  }
+
+  #stage-stats {
+    font-size: 1.1em;
+  }
+
+  #vote-ratio {
+    bottom: 0;
+  }
+
+  #stage-stats {
+    bottom: -7%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 768px) {
+  .gameIcon-flex {
+    width: 62%;
+  }
+
+  .gameIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .on-stage {
+    width: 33%;
+  }
+
+  #stage-name {
+    font-size: 1.5em;
+    left: 0%;
+  }
+
+  #on-stage-img {
+    left: 11%;
+    width: 75%;
+  }
+
+  #vote-ratio,
+  #stage-stats {
+    font-size: 1em;
+  }
+
+  #vote-ratio {
+    left: 12%;
+  }
+
+  #stage-stats {
+    left: 15%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .music-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gamesIcons-container {
+    flex-direction: column;
+  }
+
+  .gameIcon-flex {
+    width: 95%;
+  }
+
+  .gameIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  #random-select-btn {
+    width: 100%;
+  }
+
+  .on-stage {
+    width: 95%;
+  }
+
+  #stage-name {
+    font-size: 1.35em;
+    left: 7%;
+    top: 53px;
+  }
+
+  #on-stage-img {
+    max-height: initial;
+    max-width: 26%;
+    top: 104px;
+    left: 42%;
+  }
+
+  #vote-ratio {
+    font-size: 1em;
+    left: 19%;
+    bottom: initial;
+    top: 236px;
+  }
+
+  #stage-stats {
+    font-size: 1em;
+    left: 23%;
+    bottom: initial;
+    top: 262px;
   }
 }

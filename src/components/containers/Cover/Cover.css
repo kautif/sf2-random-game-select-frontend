@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'SF2Font';
+    /* src: url('../../src/fonts/street-fighter-zero-3-arcade-1-0.ttf') format('truetype'); */
+    src: url('../../../../src/fonts/street-fighter-zero-3-arcade-1-0.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'SFLogoFont';
+    /* src: url('../src/fonts/Act_Of_Rejection.ttf') format('truetype'); */
+    src: url('../../../../src/fonts/Act_Of_Rejection.ttf') format('truetype');
+  }
+
+h1, h2, p, a {
+    font-family: 'SF2Font';
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.cover {
+    background: #00006b;
+    min-height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+.sf-intro {
+    display: none;
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+}
+
+.cover-logo-container {
+    transition: all 1000ms ease 0s;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    padding-top: 3%;
+}
+
+.cover-logo {
+    font-family: "SFLogoFont";
+    background: -webkit-linear-gradient(#fdfd00 22%,#dd1d25 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-transform: rotate(-11deg);
+    transform: rotate(-11deg);
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.cover-start {
+    cursor: pointer;
+    background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    bottom: 25%;
+    width: 100%;
+}
+
+.cover-select {
+    margin-left: 25%;
+}
+
+.cover-continue {
+    position: absolute;
+    bottom: 28%;
+    background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

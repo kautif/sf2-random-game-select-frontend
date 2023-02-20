@@ -1,0 +1,57 @@
+.sf2-gameslist-container {
+    background-color: #00006b;
+    padding-top: 3%;
+}
+
+.sf2-gameslist-container h1{
+    text-align: center;
+    margin-bottom: 3%;
+    background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sf2-gameslist-container h2,
+.sf2-gameslist-container h3,
+.gameslist__game__votes-container p,
+.gameslist__game__votes-label {
+    background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.gameslist__game__votes-label {
+    font-weight: bold;
+}
+
+.sf2-gameslist__allgames {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gameslist__game {
+    text-align: center;
+}
+
+.gameslist__game img {
+    width: 600px;
+    height: 400px;
+}
+
+.gameslist__game__votes-label {
+    display: block;
+}
+
+.gameslist__game__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.gameslist__game__buttons button {
+    width: 30%;
+    font-size: 1.5em;
+}

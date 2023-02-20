@@ -1,0 +1,12 @@
+.sf2__cont__container {
+    background-color: #00006b;
+    height: 100vh;
+}
+
+.sf2__cont__fields {
+    display: flex;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

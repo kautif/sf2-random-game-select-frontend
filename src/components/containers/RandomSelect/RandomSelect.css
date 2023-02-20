@@ -1,0 +1,39 @@
+.randomselect {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../../img/sf2_select_screen.png');
+    /* background-image: url('../../../img/sf2_select_screen.png'); */
+    background-size: cover;
+}
+
+.randomselect__games__container {
+    position: relative;
+    display: flex;
+    background-color: black;
+    flex-wrap: wrap;
+    width: 60%;
+    margin-top: 2%;
+}
+
+.randomselect__game img {
+    width: 100px;
+    height: 100px;
+}
+
+.randomselect__game-selected {
+    border: 3px solid white;
+}
+
+#random-select-btn {
+    position: absolute;
+    top: 115%;
+    left: 17%;
+    background: -webkit-linear-gradient(#fdfd00 50%,#dd1d25 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 51%;
+    font-size: 1.25em;
+    cursor: pointer;
+    margin-bottom: 0;
+}

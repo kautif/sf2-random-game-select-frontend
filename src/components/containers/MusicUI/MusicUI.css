@@ -1,0 +1,16 @@
+.music-container {
+    text-align: center;
+    width: 51%;
+    padding-top: 6%;
+  }
+
+.fas {
+    width: 30px;
+    font-size: 2em;
+    color: white;
+  }
+
+.fa-pause,
+.fa-stop {
+  margin-left: 3%;
+}
