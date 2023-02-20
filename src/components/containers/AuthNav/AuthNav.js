@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import UserContext from '../../../UserContext';
 import "./AuthNav.css";
 
 export default function AuthNav (props) {

@@ -10,18 +10,18 @@ import Cookies from "universal-cookie";
 
 export default function Login () {
     const { userInfo } = useContext(UserContext);
-    const { login, setLogin, userEmail, setUserEmail } = userInfo;
+    const { login, setLogin } = userInfo;
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [login, setLogin] = useState(false);
+    const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
 
     function handleSubmit(e) {
         e.preventDefault();
         const cookies = new Cookies();
         const config = {
             method: "post",
-            url: "http://localhost:4000/login",
+            url: `${backendURL}/login`,
             data: {
                 email,
                 password

@@ -12,18 +12,16 @@ import coin from "../../../sounds/sf_coin.mp3";
 import AuthNav from '../AuthNav/AuthNav';
 
 let votesArr = [];
-// let gameIndex = 0;
 export default function RandomSelect () {
     const localData = window.localStorage.getItem('email');
     const localDataEmail = JSON.parse(localData);
     const { userInfo } = useContext(UserContext);
-    const {userGames, setUserGames,
-            userEmail, setUserEmail} = userInfo;
+    const {userGames, setUserGames, userEmail} = userInfo;
     const [gameIndex, setGameIndex] = useState(0);
-    // const [randomCount, setRandomCount] = useState(0);
+    const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
 
     async function getGames () {
-        await axios("http://localhost:4000/getgames", {
+        await axios(`${backendURL}/getgames`, {
             params: {
                 email: localDataEmail
             }
@@ -147,7 +145,6 @@ export default function RandomSelect () {
             <AuthNav username={userEmail && userEmail.substring(0, userEmail.indexOf("@"))} />
             <MusicComponent />
             <div className="randomselect__games__container">
-                {/* {document.getElementById("audio-coin") && document.getElementById("audio-coin").play()} */}
                 {userGames && userGames.map((game, i) => {
                     for (let v = 0; v < game.votes; v++) {
                         votesArr.push(i);

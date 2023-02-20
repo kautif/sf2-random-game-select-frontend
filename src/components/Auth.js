@@ -13,13 +13,14 @@ export default function Auth () {
     const cookies = new Cookies();
     const token = cookies.get("token");
     const [message, setMessage] = useState("");
+    const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
 
 // 1/9/23: Perhaps do an axios request to get the user object and display their info on their account page
 
     useEffect(() => {
         const config = {
             method: "get",
-            url: "http://localhost:4000/auth",
+            url: `${backendURL}/auth`,
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -44,15 +45,10 @@ export default function Auth () {
         window.location.href = "/continue";
     }
 
-    // let username = userEmail.substring(0, userEmail.indexOf("@"));
-
     return (
         <div>
             <AuthNav username={userEmail && userEmail.substring(0, userEmail.indexOf("@"))} logout={() => logout()} />
-            {/* <h1>Welcome {userEmail && userEmail.substring(0, userEmail.indexOf("@"))}</h1> */}
             <Gameslist />
-            {/* <h3 className="text-center text-danger">{message}</h3> */}
-            {/* <Button type="submit" variant="danger" onClick={() => logout()}>Logout</Button> */}
         </div>
     )
 }

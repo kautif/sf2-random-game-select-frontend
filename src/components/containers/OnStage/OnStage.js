@@ -2,7 +2,6 @@ import React from 'react';
 import "./OnStage.css";
 
 export default function OnStageComponent (props) {
-    console.log(props);
     return (
         <div className="on-stage">
             <h1 id="stage-name" class="game-names">{props.stageName}</h1>

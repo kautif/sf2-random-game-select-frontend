@@ -7,22 +7,17 @@ import { Button, Form } from "react-bootstrap";
 import "./Gameslist.css";
 
 let allGames;
-let gamesListArr = [];
 
 export default function Gameslist () {
     const { userInfo } = useContext(UserContext);
-    const { email, setEmail, 
-            password, setPassword, 
-            login, setLogin, 
-            userEmail, setUserEmail, 
-            userGames, setUserGames } = userInfo;
+    const { userGames, setUserGames } = userInfo;
 
     const localData = window.localStorage.getItem('email');
     const localDataEmail = JSON.parse(localData);
-    const backendURL = process.env.REACT_BACKEND || "http://localhost:4000"
+    const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000"
 
     async function getGames() {
-        await axios(backendURL + "/getgames", {
+        await axios(`${backendURL}/getgames`, {
             params: {
                 email: localDataEmail
             }
@@ -45,27 +40,6 @@ export default function Gameslist () {
             // How ever many votes there are for the current game, that's how many positions there will be in the current game's array. 
                 // Each position will need to be added individually
 
-    async function setVoteTotals(gamesObjs) {
-        // for (let z = 0; z < gamesObjs.length; z++) {
-        //     gamesObjs[z].positions.length = 0;
-        //     if (z === 0) {
-        //         nextTotal = parseInt(gamesObjs[z].votes);
-        //         gamesObjs[z].running_total = nextTotal;
-        //         for (let k = 0; k < parseInt(gamesObjs[z].votes); k++) {
-        //             gamesObjs[z].positions.push(parseInt(gamesObjs[z].votes) - k);
-        //         }
-        //         gamesObjs[z].positions.sort();
-        //     } 
-        //     else {
-        //         nextTotal += parseInt(gamesObjs[z].votes);
-        //         gamesObjs[z].running_total = nextTotal;
-        //         for (let k = nextTotal - gamesObjs[z].votes; k < gamesObjs[z].running_total; k++) {
-        //             gamesObjs[z].positions.push(k + 1);
-        //         }
-        //     }
-        // }
-    }
-
     async function updateVotes (e, gameName, gameVotes) {
         e.preventDefault();
         let assignedVotes;
@@ -79,7 +53,7 @@ export default function Gameslist () {
         if (assignedVotes !== "") {
             const config = {
                 method: "put",
-                url: "http://localhost:4000/updatevotes",
+                url: `${backendURL}/updatevotes`,
                 data: {
                     email: localDataEmail,
                     games: {
@@ -106,7 +80,7 @@ export default function Gameslist () {
         e.preventDefault();
         const config = {
             method: "delete",
-            url: "http://localhost:4000/deletegame",
+            url: `${backendURL}/deletegame`,
             data: {
                 email: localDataEmail,
                 games: {

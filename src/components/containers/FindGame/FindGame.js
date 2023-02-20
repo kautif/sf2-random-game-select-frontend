@@ -8,9 +8,11 @@ import { Button } from "react-bootstrap";
 
 export default function FindGame () {
     const { userInfo } = useContext(UserContext);
-    const { email, setEmail, password, setPassword, login, setLogin, userEmail, setUserEmail } = userInfo;
+    const { email, userEmail, setUserEmail } = userInfo;
     const [search, setSearch] = useState("");
     const [games, setGames] = useState([]);
+    const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
+
     function getGames (e) {
         e.preventDefault();
         axios({
@@ -50,7 +52,7 @@ export default function FindGame () {
         gamesArr.push(gameObj)
         let config = {
             method: "post",
-            url: "http://localhost:4000/addgame",
+            url: `${backendURL}/addgame`,
             data: {
                 localData,
                 games: gameObj

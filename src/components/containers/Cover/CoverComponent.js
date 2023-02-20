@@ -1,6 +1,4 @@
 import React from 'react';
-// import sf_logo from '../img/sf_logo.png';
-// import sf_intro from '../img/SF2-Intro-no-loop.gif';
 import sf_logo from '../../../img/sf_logo.png';
 import sf_intro from '../../../img/SF2-Intro-no-loop.gif';
 import sf_theme from '../../../sounds/sf2_theme.mp3';
@@ -8,7 +6,6 @@ import sf_coin from '../../../sounds/sf_coin.mp3';
 import './Cover.css';
 
 import { BrowserRouter as Router, Route, Link, BrowserRouter, Switch, useHistory } from "react-router-dom";
-import Nav from '../../Nav';
 
 function fade(element) {
     var op = 1;  // initial opacity
@@ -74,8 +71,6 @@ function startIntro () {
 
 function playCoin () {
     document.getElementById('cover-coin').play();
-    // let gamesContainer = document.getElementsByClassName('games-container')[0];
-    // gamesContainer.style.width = window.outerWidth + 'px';
 }
 
 export default function CoverComponent () {
@@ -94,9 +89,6 @@ export default function CoverComponent () {
                     </div>
                     <div className="cover-continue">
                         <Link to="/continue"><h1 onClick={playCoin}>Continue</h1></Link>
-                        {/* <ul className="sf-nav">
-                            <li><Link to="/continue">Continue</Link></li>
-                        </ul> */}
                         <audio id="cover-coin" src={sf_coin}></audio>
                     </div>
                 </div>
