@@ -1,1 +1,2 @@
-/user/random_select /
+# Redirects from what the browser requests to what we serve
+/user/random_select              /user/random_select
