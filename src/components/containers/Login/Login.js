@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import "./Login.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Login () {
     const { userInfo } = useContext(UserContext);
@@ -15,6 +16,7 @@ export default function Login () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
+    const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -30,21 +32,27 @@ export default function Login () {
 
         axios(config)
             .then(result => {
+                setLogin(true);
                 cookies.set("token", result.data.token, { path: "/"});
-                window.location.href = `/user`;
                 console.log("Login result: ", result);
             })
             .catch(error => {
                 console.log("Login Error: ", error);
             })
 
-        setLogin(true);
     }
 
     useEffect(() => {
         console.log("useEffect: ", email);
         window.localStorage.setItem('email', JSON.stringify(email));
     }, [email])
+
+    useEffect(() => {
+        if (login) {
+            console.log("logged in to /user");
+            history.push('/user');
+        }
+    }, [login])
 
     return (
         <div className="sf2__login-container">
