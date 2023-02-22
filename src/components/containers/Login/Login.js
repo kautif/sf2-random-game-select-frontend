@@ -12,7 +12,8 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 export default function Login () {
     const { userInfo } = useContext(UserContext);
     const { login, setLogin } = userInfo;
-
+    
+    const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
@@ -20,6 +21,7 @@ export default function Login () {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setMessage("Authenticating...")
         const cookies = new Cookies();
         const config = {
             method: "post",
@@ -37,6 +39,8 @@ export default function Login () {
                 console.log("Login result: ", result);
             })
             .catch(error => {
+                setLogin(false);
+                setMessage("Invalid Credentials");
                 console.log("Login Error: ", error);
             })
 
@@ -82,7 +86,7 @@ export default function Login () {
                     </Button>
                 </div>
             </Form>
-            {login ? <p className="text-success">Logged In</p> : <p className="text-danger">Not Logged In</p>}
+            {message && <p className="text-danger">{message}</p>}
         </div>
     )
 }
