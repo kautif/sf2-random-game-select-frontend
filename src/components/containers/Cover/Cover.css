@@ -70,6 +70,7 @@ a:-webkit-any-link {
 }
 
 .cover-continue {
+    display: none;
     position: absolute;
     bottom: 28%;
     background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);

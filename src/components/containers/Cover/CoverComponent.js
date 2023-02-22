@@ -61,6 +61,7 @@ function startIntro () {
     document.getElementById('cover-theme').volume = 0.35;
     document.getElementById('cover-theme').play();
     setTimeout(function () {
+        document.getElementsByClassName('cover-continue')[0].style.display = 'initial';
         document.getElementsByClassName('cover-logo-container')[0].style.transition = '1000ms';
         unfade(document.getElementsByClassName('cover-logo-container')[0])
         document.getElementsByClassName('cover-logo-container')[0].style.width = '100%';
