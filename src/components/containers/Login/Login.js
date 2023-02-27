@@ -62,7 +62,6 @@ export default function Login () {
         <div className="sf2__login-container">
             <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group size="lg" controlId="email" className="mt-3">
-                    <Form.Label>Email</Form.Label>
                     <Form.Control
                         autofocus
                         type="email"
@@ -73,7 +72,6 @@ export default function Login () {
                 </Form.Group>
 
                 <Form.Group size="lg" controlId="password" className="mt-3">
-                    <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
                         value={password}

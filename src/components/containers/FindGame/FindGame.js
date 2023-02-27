@@ -80,7 +80,7 @@ export default function FindGame () {
             <h1>Find a Game</h1>
             <form onSubmit={(e) => getGames(e)}>
                 <input type="text"  placeholder="Look for a game..." value={search} onChange={(e) => setSearch(e.target.value)}/>
-                <Button onClick={(e) => getGames(e)}>Submit</Button>
+                <Button className="sf2-findgame__submit-btn" onClick={(e) => getGames(e)}>Submit</Button>
             </form>
             <div className="sf2-find-game__allresults">
                 {retrievedGames}

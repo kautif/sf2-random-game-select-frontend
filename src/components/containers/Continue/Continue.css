@@ -6,7 +6,14 @@
 .sf2__cont__fields {
     display: flex;
     width: 70%;
+    padding-top: 3%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+
+@media (max-width: 426px) {
+    .sf2__cont__fields {
+        flex-direction: column;
+    }
 }

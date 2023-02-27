@@ -153,7 +153,16 @@ export default function RandomSelect () {
                 
                 {userGames && userGames.map((game, index) => {
                     return (
-                        <div className={`randomselect__game ${gameIndex === index ? "randomselect__game-selected" : ""}`} key={index}>
+                        <div className={`randomselect__game 
+                                ${gameIndex === index ? "randomselect__game-selected" : ""}`}
+                                key={index}
+                                onClick={() => {
+                                    setGameIndex(index);
+                                    document.getElementById('select').play();
+                                    document.getElementById('select').currentTime = 0;
+                                }
+                            }
+                                >
                             <img className="randomselect__game__img" src={game.img_url} alt={"cover of " + game.name} />
                         </div>
                     )

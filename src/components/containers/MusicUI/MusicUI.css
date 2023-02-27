@@ -14,3 +14,9 @@
 .fa-stop {
   margin-left: 3%;
 }
+
+@media (max-width: 425px) and (min-width: 320px) {
+  .music-container {
+    width: 100%;
+  }
+}

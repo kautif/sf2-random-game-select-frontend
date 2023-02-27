@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, BrowserRouter, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import CoverComponent from './components/containers/Cover/CoverComponent';
 import Continue from './components/containers/Continue/Continue';
 import Auth from './components/Auth';

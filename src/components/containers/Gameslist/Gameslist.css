@@ -55,3 +55,56 @@
     width: 30%;
     font-size: 1.5em;
 }
+
+@media (min-width: 1024px) {
+    .gameslist__game {
+        width: 32%;
+        margin-bottom: 5%;
+    }
+
+    .gameslist__game img {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media (min-width: 427px) and (max-width: 1023px) {
+    .gameslist__game {
+        text-align: center;
+        width: 47%;
+        margin-bottom: 8%;
+    }
+
+    .gameslist__game img {
+        width: 100%;
+        height: 300px;
+    }    
+
+    .gameslist__game__title {
+        font-size: 1.5em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@media(min-width: 320px) and (max-width: 426px) {
+    .sf2-gameslist__allgames {
+        flex-direction: column;
+    }
+
+    .gameslist__game {
+        margin-bottom: 24%;
+    }
+
+    .gameslist__game img {
+        height: 49%;
+        width: 85%;
+    }
+
+    .gameslist__game form input {
+        width: 87%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

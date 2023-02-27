@@ -47,7 +47,7 @@ export default function Auth () {
 
     return (
         <div>
-            <AuthNav username={userEmail && userEmail.substring(0, userEmail.indexOf("@"))} logout={() => logout()} />
+                        <AuthNav username={userEmail && userEmail.substring(0, userEmail.indexOf("@"))} logout={() => logout()} />
             <Gameslist />
         </div>
     )

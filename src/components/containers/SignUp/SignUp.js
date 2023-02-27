@@ -7,37 +7,50 @@ export default function SignUp () {
     const [registerMsg, setRegisterMsg] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [validation, setValidation] = useState("");
     const backendURL = process.env.REACT_APP_NODE_BACKEND || "http://localhost:4000";
+    let symbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const config = {
-            method: "post",
-            url: `${backendURL}/register`,
-            data: {
-                email,
-                password
+        if (password.length < 8) {
+            setValidation("Password length must be at least 8 characters");
+        } else if (!symbols.test(password) || !/\d/.test(password)) {
+            setValidation("Include at least one special character and one number in your password");
+        } else {
+            const config = {
+                method: "post",
+                url: `${backendURL}/register`,
+                data: {
+                    email,
+                    password
+                }
             }
+            axios(config)
+                .then(result => {
+                    console.log("axios result: ", result);
+                    console.log("server message: ", result.data.message);
+                    setRegisterMsg(result.data.message);
+                    setValidation("");
+                })
+                .catch(error => {
+                    console.log("axios error: ", error);
+                })
         }
-        axios(config)
-            .then(result => {
-                console.log("axios result: ", result);
-                console.log("server message: ", result.data.message);
-                setRegisterMsg(result.data.message);
-            })
-            .catch(error => {
-                console.log("axios error: ", error);
-            })
+    }
 
-        alert("Submitted");
+    function handlePassword (e) {
+        console.log("handlePw: ", e.target.value);
+        // if (e.target.value.length < 8) {
+        //     setValidation("Password length must be at least 8 characters");
+        // }
     }
         
     return (
         <div className="sf2__register__container">
             <Form onSubmit={e => handleSubmit(e)}>
                 <Form.Group controlId="formBasicEmail" size="lg" className="mt-3">
-                    <Form.Label>Email</Form.Label>
                     <Form.Control 
                         type="email" 
                         name="email" 
@@ -48,7 +61,6 @@ export default function SignUp () {
                 </Form.Group>
                 
                 <Form.Group size="lg" className="mt-3">
-                    <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password" 
                         name="password"
@@ -57,6 +69,7 @@ export default function SignUp () {
                         onChange={e => setPassword(e.target.value)} >
                     </Form.Control>
                 </Form.Group>
+                <p className="text-danger">{validation}</p>
                 <Button 
                     block 
                     size="lg" 
@@ -65,7 +78,7 @@ export default function SignUp () {
                         Register
                 </Button>
             </Form>
-            <p>{registerMsg}</p>
+            <p className="text-danger">{registerMsg}</p>
         </div>
     )
 }
