@@ -78,11 +78,12 @@ export default function CoverComponent () {
         return (
             <div className="cover" onLoad={() => flashStart()}>
                 <img className="sf-intro" src={sf_intro} alt="street fighter intro gif" loop="false" />
-                <h1 className="cover-start" onClick={() => startIntro()}>Press Start</h1>
+                <Link onClick={() => startIntro()} to="#"><h1 className="cover-start">Press Start</h1></Link>
+                <Link to="/continue"><h3 className="cover-skip">Skip Intro</h3></Link>
                 <audio id="cover-theme" src={sf_theme}></audio>
                 <div className="cover-logo-container">
                     <div>
-                        <img src={sf_logo} alt="street fighter logo" />
+                        <img className="sf-logo" src={sf_logo} alt="street fighter logo" />
                     </div>
                     <div>
                         <h1 className="cover-logo">Random Game</h1>

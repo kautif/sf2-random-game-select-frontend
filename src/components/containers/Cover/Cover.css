@@ -10,7 +10,7 @@
     src: url('../../../../src/fonts/Act_Of_Rejection.ttf') format('truetype');
   }
 
-h1, h2, p, a {
+h1, h2, h3, p, a {
     font-family: 'SF2Font';
 }
 
@@ -65,6 +65,16 @@ a:-webkit-any-link {
     width: 100%;
 }
 
+.cover-skip {
+    cursor: pointer;
+    background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    bottom: 17%;
+    width: 100%;
+}
+
 .cover-select {
     margin-left: 25%;
 }
@@ -76,4 +86,64 @@ a:-webkit-any-link {
     background: -webkit-linear-gradient(#ffb50e 50%,#ffd383 65%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1023px) and (min-width: 427px) {
+    .cover-logo-container {
+        flex-direction: column;
+    }
+
+    .sf-logo {
+        width: 50%;
+    }
+
+    .cover-logo {
+        font-size: 4em;
+    }
+    
+    .cover-skip {
+        bottom: 41%;
+    }
+
+    .sf-intro {
+        bottom: 20%;
+        width: 100%;
+        left: 0;
+    }
+
+    .cover-continue {
+        left: 36%;
+    }
+}
+
+@media(max-width: 426px) and (min-width: 320px) {
+    .cover-logo-container {
+        flex-direction: column;
+    }
+
+    .cover-logo {
+        font-size: 3em;
+    }
+
+    .sf-logo {
+        width: 100%;
+    }
+
+    .sf-intro {
+        bottom: 22%;
+        width: 100%;
+        left: 0;
+    }
+
+    .cover-start {
+        bottom: 49;
+    }
+
+    .cover-skip {
+        bottom: 40%;
+    }
+
+    .cover-continue {
+        left: 25%;
+    }
 }
