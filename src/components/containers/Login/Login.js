@@ -63,7 +63,6 @@ export default function Login () {
             <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group size="lg" controlId="email" className="mt-3">
                     <Form.Control
-                        autofocus
                         type="email"
                         value={email}
                         placeholder="Enter email address..."
@@ -79,7 +78,7 @@ export default function Login () {
                         onChange={e => setPassword(e.target.value)}/>
                 </Form.Group>
                 <div className="text-center">
-                    <Button type="submit" block size="lg" className="btn btn-primary mt-4">
+                    <Button type="submit" size="lg" className="btn btn-primary mt-4">
                         Login
                     </Button>
                 </div>

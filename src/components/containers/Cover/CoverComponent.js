@@ -56,18 +56,20 @@ let flashStart = function () {
 }
 
 function startIntro () {
-    document.getElementsByClassName('cover-start')[0].style.visibility = 'hidden';
-    document.getElementsByClassName('sf-intro')[0].style.display = 'block';
-    document.getElementById('cover-theme').volume = 0.35;
-    document.getElementById('cover-theme').play();
-    setTimeout(function () {
-        document.getElementsByClassName('cover-continue')[0].style.display = 'initial';
-        document.getElementsByClassName('cover-logo-container')[0].style.transition = '1000ms';
-        unfade(document.getElementsByClassName('cover-logo-container')[0])
-        document.getElementsByClassName('cover-logo-container')[0].style.width = '100%';
-        document.getElementsByClassName('cover-logo-container')[0].style.display = 'flex';
-        repeat = false;
-    }, 7000)
+    if (window.location.pathname === "/") {
+        document.getElementsByClassName('cover-start')[0].style.visibility = 'hidden';
+        document.getElementsByClassName('sf-intro')[0].style.display = 'block';
+        document.getElementById('cover-theme').volume = 0.35;
+        document.getElementById('cover-theme').play();
+        setTimeout(function () {
+            document.getElementsByClassName('cover-continue')[0].style.display = 'initial';
+            document.getElementsByClassName('cover-logo-container')[0].style.transition = '1000ms';
+            unfade(document.getElementsByClassName('cover-logo-container')[0])
+            document.getElementsByClassName('cover-logo-container')[0].style.width = '100%';
+            document.getElementsByClassName('cover-logo-container')[0].style.display = 'flex';
+            repeat = false;
+        }, 7000)
+    }
 }
 
 function playCoin () {
@@ -77,10 +79,10 @@ function playCoin () {
 export default function CoverComponent () {
         return (
             <div className="cover" onLoad={() => flashStart()}>
-                <img className="sf-intro" src={sf_intro} alt="street fighter intro gif" loop="false" />
-                <Link onClick={() => startIntro()} to="#"><h1 className="cover-start">Press Start</h1></Link>
-                <Link to="/continue"><h3 className="cover-skip">Skip Intro</h3></Link>
+                <img className="sf-intro" src={sf_intro} alt="street fighter intro gif" loop={false} />
+                <h1 onClick={() => startIntro()} className="cover-start">Press Start</h1>
                 <audio id="cover-theme" src={sf_theme}></audio>
+                <Link to="/continue"><h3 className="cover-skip">Skip Intro</h3></Link>
                 <div className="cover-logo-container">
                     <div>
                         <img className="sf-logo" src={sf_logo} alt="street fighter logo" />

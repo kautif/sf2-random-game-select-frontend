@@ -16,6 +16,7 @@ export default function SignUp () {
 
         if (password.length < 8) {
             setValidation("Password length must be at least 8 characters");
+            document.getElementById('sf2-signup-form').inva
         } else if (!symbols.test(password) || !/\d/.test(password)) {
             setValidation("Include at least one special character and one number in your password");
         } else {
@@ -39,24 +40,18 @@ export default function SignUp () {
                 })
         }
     }
-
-    function handlePassword (e) {
-        console.log("handlePw: ", e.target.value);
-        // if (e.target.value.length < 8) {
-        //     setValidation("Password length must be at least 8 characters");
-        // }
-    }
         
     return (
         <div className="sf2__register__container">
-            <Form onSubmit={e => handleSubmit(e)}>
+            <Form onSubmit={e => handleSubmit(e)} id="sf2-signup-form" data-testid="signup-form">
                 <Form.Group controlId="formBasicEmail" size="lg" className="mt-3">
                     <Form.Control 
                         type="email" 
                         name="email" 
                         value={email}
                         placeholder="Enter email address..." 
-                        onChange={e => setEmail(e.target.value)}>
+                        onChange={e => setEmail(e.target.value)}
+                        >
                     </Form.Control>
                 </Form.Group>
                 
@@ -64,19 +59,20 @@ export default function SignUp () {
                     <Form.Control
                         type="password" 
                         name="password"
+                        min="8"
                         value={password}
                         placeholder="Enter password..."
-                        onChange={e => setPassword(e.target.value)} >
+                        onChange={e => setPassword(e.target.value)}>
                     </Form.Control>
                 </Form.Group>
                 <p className="text-danger">{validation}</p>
                 <Button 
-                    block 
+                    data-testid="signup-btn"
                     size="lg" 
                     type="submit" 
                     className="btn btn-primary mt-4">
                         Register
-                </Button>
+                </Button>   
             </Form>
             <p className="text-danger">{registerMsg}</p>
         </div>

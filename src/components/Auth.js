@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext} from "react";
-import { Button } from "react-bootstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -29,7 +28,6 @@ export default function Auth () {
         axios(config)
             .then(result => {
                 setMessage(result.data.message);
-                console.log("auth result: ", result);
                 setUserEmail(result.data.user.email);
             })
             .catch(error => {
