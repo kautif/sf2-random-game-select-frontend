@@ -3,3 +3,14 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.sf2__login-test {
+    margin-top: 3%;
+}
+
+.sf2__login-user,
+.sf2__login-pw {
+    background: -webkit-linear-gradient(#ffb50e 50%, #ffd383 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

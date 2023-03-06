@@ -47,7 +47,6 @@ export default function Login () {
     }
 
     useEffect(() => {
-        console.log("useEffect: ", email);
         window.localStorage.setItem('email', JSON.stringify(email));
     }, [email])
 
@@ -83,6 +82,10 @@ export default function Login () {
                     </Button>
                 </div>
             </Form>
+            <div className="sf2__login-test">
+                <p className="sf2__login-user">test username: kautif@gmail.com</p>
+                <p className="sf2__login-pw">test pw: testtest</p>
+            </div>
             {message && <p className="text-danger">{message}</p>}
         </div>
     )
