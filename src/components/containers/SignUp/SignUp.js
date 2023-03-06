@@ -16,7 +16,6 @@ export default function SignUp () {
 
         if (password.length < 8) {
             setValidation("Password length must be at least 8 characters");
-            document.getElementById('sf2-signup-form').inva
         } else if (!symbols.test(password) || !/\d/.test(password)) {
             setValidation("Include at least one special character and one number in your password");
         } else {
