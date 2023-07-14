@@ -111,7 +111,13 @@ export default function Gameslist () {
                     <h3>Current Votes</h3>
                     <p className="gameslist__game__votes">{game.votes}</p>
                 </div>
-                <Form onSubmit={(e) => {updateVotes(e, game.name, game.votes); window.location.reload();}}>
+
+                
+                <Form onSubmit={(e) => {
+                    updateVotes(e, game.name, game.votes); 
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1000)}}>
                     <Form.Label className="gameslist__game__votes-label">Change To</Form.Label>
                     <Form.Control
                         className="gameslist__game__votes" 
@@ -119,8 +125,16 @@ export default function Gameslist () {
                         placeholder="Update to desired number of votes. Numbers only"
                         />
                     <div className="gameslist__game__buttons">
-                        <Button onClick={(e) => {updateVotes(e, game.name, game.votes); window.location.reload(); }}>Submit</Button>
-                        <Button onClick={(e) => {deleteGame(e, game.name); window.location.reload(); }}>Delete</Button>
+                        <Button onClick={(e) => {
+                                updateVotes(e, game.name, game.votes); 
+                                setTimeout(function() {
+                                    window.location.reload();
+                                }, 1000)}}>Submit</Button>
+                        <Button onClick={(e) => {
+                                deleteGame(e, game.name); 
+                                setTimeout(function() {
+                                    window.location.reload();
+                                }, 1000)}}>Delete</Button>
                     </div>
                 </Form>
             </div>
